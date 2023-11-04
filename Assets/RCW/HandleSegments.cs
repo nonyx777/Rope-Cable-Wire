@@ -10,19 +10,6 @@ public class HandleSegments : MonoBehaviour
     [SerializeField] List<GameObject> segments = new List<GameObject>();
     GameObject segment_tempo;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void addSegment(){
         for(int i = 0; i < amount; i++){
             segment_tempo = Instantiate(Segment);
