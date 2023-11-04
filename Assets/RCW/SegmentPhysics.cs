@@ -26,9 +26,13 @@ public class SegmentPhysics : MonoBehaviour
 
     void integrate()
     {
+        acceleration += gravity;
+
         current = transform.position;
         velocity = current - previous;
-        transform.position += velocity + acceleration * Time.deltaTime;
+        transform.position += velocity + acceleration * Time.deltaTime * Time.deltaTime;
         previous = current;
+
+        acceleration = new Vector3(0f, 0f, 0f);
     }
 }

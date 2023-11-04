@@ -110,8 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ffb3c1818ede7ee68112970f05d9764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: {x: 0, y: -5, z: 0}
+  gravity: {x: 0, y: -1, z: 0}
   acceleration: {x: 0, y: 0, z: 0}
   previous: {x: 0, y: 1, z: 0}
-  current: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
