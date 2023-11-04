@@ -6,7 +6,7 @@ public class DistanceJoint : MonoBehaviour
 {
     [Header("Rope Parameters")]
     [SerializeField] private GameObject Segment;
-    [SerializeField] private int size;
+    [SerializeField] private int amount = 1;
     [SerializeField] List<GameObject> segments = new List<GameObject>();
     GameObject segment_tempo;
 
@@ -24,10 +24,12 @@ public class DistanceJoint : MonoBehaviour
     }
 
     public void addSegment(){
-        segment_tempo = Instantiate(Segment);
-        if(segments.Count >= 1)
-            segment_tempo.transform.position = positionSegment();
-        segments.Add(segment_tempo);
+        for(int i = 0; i < amount; i++){
+            segment_tempo = Instantiate(Segment);
+            if(segments.Count >= 1)
+                segment_tempo.transform.position = positionSegment();
+            segments.Add(segment_tempo);
+        }
     }
 
     Vector3 positionSegment(){
