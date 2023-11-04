@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(DistanceJoint))]
+[CustomEditor(typeof(HandleSegments))]
 public class SegmentEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
-        DistanceJoint distanceJoint = (DistanceJoint) target;
+        HandleSegments handleSegments = (HandleSegments) target;
         if(GUILayout.Button("Add Segment"))
-            distanceJoint.addSegment();
-	if(GUILayout.Button("Clear Segment"))
-	    distanceJoint.clearSegment();
-    }
+            handleSegments.addSegment();
+        if(GUILayout.Button("Clear Segment"))
+            handleSegments.clearSegment();
+        }
 }
