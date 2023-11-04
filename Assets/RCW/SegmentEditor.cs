@@ -13,5 +13,7 @@ public class SegmentEditor : Editor
         DistanceJoint distanceJoint = (DistanceJoint) target;
         if(GUILayout.Button("Add Segment"))
             distanceJoint.addSegment();
+	if(GUILayout.Button("Clear Segment"))
+	    distanceJoint.clearSegment();
     }
 }
