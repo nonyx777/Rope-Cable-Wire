@@ -26,7 +26,7 @@ public class HandleSegments : MonoBehaviour
 
     Vector3 positionSegment(){
         int size = segments.Count;
-        Vector3 position = segments[size-1].transform.position + new Vector3(0f, -0.5f, 0f);
+        Vector3 position = segments[size-1].transform.position + new Vector3(0f, -1f, 0f);
         return position;
     }
 

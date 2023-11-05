@@ -15,15 +15,20 @@ public class SegmentPhysics : MonoBehaviour
     private Vector3 current;
     private Vector3 velocity;
 
+    public static Boolean physics;
+
     // Start is called before the first frame update
     void Start()
     {
+        physics = false;
         previous = transform.position + previous;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!physics)
+            return;
         if(id == 0)
             return;
 
@@ -43,5 +48,12 @@ public class SegmentPhysics : MonoBehaviour
         previous = current;
 
         acceleration = new Vector3(0f, 0f, 0f);
+    }
+
+    public static void enablePhysics(){
+        physics = true;
+    }
+    public static void disablePhysics(){
+        physics = false;
     }
 }

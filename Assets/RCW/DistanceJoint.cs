@@ -6,7 +6,7 @@ using UnityEngine;
 public class DistanceJoint : MonoBehaviour
 {
     [Header("Distance-Joint Parameters")]
-    [SerializeField] private float length = 5f;
+    [SerializeField] private float length;
     void Start(){
 
     }
