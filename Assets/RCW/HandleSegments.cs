@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HandleSegments : MonoBehaviour
@@ -7,12 +8,13 @@ public class HandleSegments : MonoBehaviour
     [Header("Rope Parameters")]
     [SerializeField] private GameObject Segment;
     [SerializeField] private int amount = 1;
-    [SerializeField] List<GameObject> segments = new List<GameObject>();
+    [SerializeField] public static List<GameObject> segments = new List<GameObject>();
     GameObject segment_tempo;
 
     public void addSegment(){
         for(int i = 0; i < amount; i++){
             segment_tempo = Instantiate(Segment);
+            segment_tempo.GetComponent<SegmentPhysics>().id = segments.Count;
             if(segments.Count >= 1)
                 segment_tempo.transform.position = positionSegment();
             segments.Add(segment_tempo);
@@ -21,7 +23,7 @@ public class HandleSegments : MonoBehaviour
 
     Vector3 positionSegment(){
         int size = segments.Count;
-        Vector3 position = segments[size-1].transform.position + new Vector3(0f, -1f, 0f);
+        Vector3 position = segments[size-1].transform.position + new Vector3(0f, -0.5f, 0f);
         return position;
     }
 
