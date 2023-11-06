@@ -10,9 +10,9 @@ public class SegmentPhysicsEditor : Editor
     {
         DrawDefaultInspector();
 
-        if(GUILayout.Button("Enable Physics"))
+        if (GUILayout.Button("Enable Physics"))
             SegmentPhysics.enablePhysics();
-        if(GUILayout.Button("Disable Physics"))
+        if (GUILayout.Button("Disable Physics"))
             SegmentPhysics.disablePhysics();
     }
 }

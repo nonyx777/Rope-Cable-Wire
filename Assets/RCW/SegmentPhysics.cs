@@ -14,8 +14,9 @@ public class SegmentPhysics : MonoBehaviour
     public int id;
     private Vector3 current;
     private Vector3 velocity;
-
     public static Boolean physics;
+    public Boolean pinned;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +28,7 @@ public class SegmentPhysics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!physics)
-            return;
-        if(id == 0)
+        if (!physics || id == 0 || pinned)
             return;
 
         integrate();
@@ -40,7 +39,7 @@ public class SegmentPhysics : MonoBehaviour
         acceleration += gravity;
 
         current = transform.position;
-    
+
         velocity = current - previous;
         velocity *= (1f - damping * Time.deltaTime);
 
@@ -50,10 +49,17 @@ public class SegmentPhysics : MonoBehaviour
         acceleration = new Vector3(0f, 0f, 0f);
     }
 
-    public static void enablePhysics(){
+    public static void enablePhysics()
+    {
         physics = true;
     }
-    public static void disablePhysics(){
+    public static void disablePhysics()
+    {
         physics = false;
+    }
+
+    public void pinSegment()
+    {
+        pinned = !pinned;
     }
 }
