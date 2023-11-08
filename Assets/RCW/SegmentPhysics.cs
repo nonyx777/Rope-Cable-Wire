@@ -1,9 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class SegmentPhysics : MonoBehaviour
 {
@@ -18,6 +16,9 @@ public class SegmentPhysics : MonoBehaviour
     public static Boolean physics;
     public Boolean pinned;
 
+    //.... :)
+    private Vector3 constant_vector = new Vector3(1f, 1f, 1f);
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +30,10 @@ public class SegmentPhysics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!physics || pinned)
+        if (!physics || pinned){
+            previous = transform.position;
             return;
+        }
 
         integrate();
     }
