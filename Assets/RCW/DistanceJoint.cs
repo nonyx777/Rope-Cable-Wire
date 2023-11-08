@@ -38,9 +38,8 @@ public class DistanceJoint : MonoBehaviour
             Vector3 offsetVec = distanceResolver(HandleSegments.segments[i].transform.position,
                                 HandleSegments.segments[j].transform.position);
 
-            if (HandleSegments.segments[i].GetComponent<SegmentPhysics>().id != 0 && HandleSegments.segments[i].GetComponent<SegmentPhysics>().pinned == false)
+            if (HandleSegments.segments[i].GetComponent<SegmentPhysics>().pinned == false)
                 HandleSegments.segments[i].transform.position += offsetVec;
-
             if(HandleSegments.segments[j].GetComponent<SegmentPhysics>().pinned == false)
                 HandleSegments.segments[j].transform.position += -offsetVec;
         }
