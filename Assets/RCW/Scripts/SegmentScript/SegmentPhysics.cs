@@ -30,7 +30,8 @@ public class SegmentPhysics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!physics || pinned){
+        if (!physics || pinned)
+        {
             previous = transform.position;
             return;
         }
@@ -73,7 +74,8 @@ public class SegmentPhysics : MonoBehaviour
     }
 
     //TODO: implement algorithm
-    void penetrationResolution(Collider other){
+    void penetrationResolution(Collider other)
+    {
         //collision_normal = transform.position - other.position;
         //penetration_distance = (transform.radius + other.radius) - displacement.magnitude();
         //penetration_resolution_vector = collision_normal.magnitude() * penetration_distance/this.mass + other.mass
