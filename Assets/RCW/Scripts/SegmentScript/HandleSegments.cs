@@ -9,7 +9,8 @@ public class HandleSegments : MonoBehaviour
     [SerializeField] private GameObject Segment;
     [SerializeField] private int amount = 1;
     [SerializeField] private Transform spawn_position;
-    [SerializeField] public static List<GameObject> segments = new List<GameObject>();
+    [SerializeField] private GameObject segment_parent;
+    public static List<GameObject> segments = new List<GameObject>();
     GameObject segment_tempo;
 
     public void addSegment(){
@@ -20,6 +21,8 @@ public class HandleSegments : MonoBehaviour
                 segment_tempo.transform.position = positionSegment();
             else
                 segment_tempo.transform.position = spawn_position.position;
+
+            segment_tempo.transform.parent = segment_parent.transform;
             segments.Add(segment_tempo);
         }
     }
@@ -33,6 +36,7 @@ public class HandleSegments : MonoBehaviour
     public void clearSegment(){
 	foreach(GameObject segment in segments)
 		DestroyImmediate(segment);
+        
 	segments.Clear();
     }
 
