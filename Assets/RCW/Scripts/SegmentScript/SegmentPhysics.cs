@@ -16,9 +16,8 @@ public class SegmentPhysics : MonoBehaviour
     public static Boolean physics;
     public Boolean pinned;
 
-    //.... :)
-    private Vector3 constant_vector = new Vector3(1f, 1f, 1f);
-
+    //temporary
+    private const float masss = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +45,7 @@ public class SegmentPhysics : MonoBehaviour
         current = transform.position;
 
         velocity = current - previous;
-        velocity *= (1f - damping * Time.deltaTime);
+        velocity *= 1f - damping * Time.deltaTime;
 
         transform.position += velocity + acceleration * Time.deltaTime * Time.deltaTime;
         previous = current;
@@ -70,16 +69,24 @@ public class SegmentPhysics : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        print("Triggered");
+        penetrationResolution(other);
     }
 
-    //TODO: implement algorithm
+    //TODO: fix smoothness of the resolution
     void penetrationResolution(Collider other)
     {
-        //collision_normal = transform.position - other.position;
-        //penetration_distance = (transform.radius + other.radius) - displacement.magnitude();
-        //penetration_resolution_vector = collision_normal.magnitude() * penetration_distance/this.mass + other.mass
-        //transform.position = penetration_resolution_vector * this.inversemass;
-        //other.position = penetration_resolition_vector * other.inversemass;
+        //storing radius and mass of the objects
+        //this object
+        float this_radius = GetComponent<SphereCollider>().radius;
+        float this_mass = GetComponent<Rigidbody>().mass;
+        //other object
+        float other_radius = other.GetComponent<SphereCollider>().radius;
+        float other_mass = other.GetComponent<Rigidbody>().mass;
+
+        Vector3 collision_normal = transform.position - other.transform.position;
+        float penetration_distance = (this_radius + other_radius) - collision_normal.magnitude;
+        Vector3 penetration_resolution_vector = collision_normal.normalized * penetration_distance / (this_mass + other_mass);
+
+        transform.position += -penetration_resolution_vector * 1/masss;
     }
 }
