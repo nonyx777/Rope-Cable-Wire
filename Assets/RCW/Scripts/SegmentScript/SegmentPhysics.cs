@@ -17,7 +17,7 @@ public class SegmentPhysics : MonoBehaviour
     public Boolean pinned;
 
     //temporary
-    private const float masss = 5f;
+    private const float masss = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -87,6 +87,6 @@ public class SegmentPhysics : MonoBehaviour
         float penetration_distance = (this_radius + other_radius) - collision_normal.magnitude;
         Vector3 penetration_resolution_vector = collision_normal.normalized * penetration_distance / (this_mass + other_mass);
 
-        transform.position += -penetration_resolution_vector * 1/masss;
+        transform.position -= penetration_resolution_vector * 1 / masss;
     }
 }

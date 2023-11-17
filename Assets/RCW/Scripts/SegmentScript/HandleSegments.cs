@@ -13,11 +13,13 @@ public class HandleSegments : MonoBehaviour
     public static List<GameObject> segments = new List<GameObject>();
     GameObject segment_tempo;
 
-    public void addSegment(){
-        for(int i = 0; i < amount; i++){
+    public void addSegment()
+    {
+        for (int i = 0; i < amount; i++)
+        {
             segment_tempo = Instantiate(Segment);
             segment_tempo.GetComponent<SegmentPhysics>().id = segments.Count;
-            if(segments.Count >= 1)
+            if (segments.Count >= 1)
                 segment_tempo.transform.position = positionSegment();
             else
                 segment_tempo.transform.position = spawn_position.position;
@@ -27,17 +29,19 @@ public class HandleSegments : MonoBehaviour
         }
     }
 
-    Vector3 positionSegment(){
+    Vector3 positionSegment()
+    {
         int size = segments.Count;
-        Vector3 position = segments[size-1].transform.position + new Vector3(0f, -1f, 0f);
+        Vector3 position = segments[size - 1].transform.position + new Vector3(0f, -transform.localScale.y, 0f);
         return position;
     }
 
-    public void clearSegment(){
-	foreach(GameObject segment in segments)
-		DestroyImmediate(segment);
-        
-	segments.Clear();
+    public void clearSegment()
+    {
+        foreach (GameObject segment in segments)
+            DestroyImmediate(segment);
+
+        segments.Clear();
     }
 
 }
