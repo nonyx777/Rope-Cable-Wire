@@ -15,5 +15,7 @@ public class HandleSegmentsEditor : Editor
             handleSegments.addSegment();
         if (GUILayout.Button("Clear Segment"))
             handleSegments.clearSegment();
+        if (GUILayout.Button("Display Segment"))
+            SegmentPhysics.displaySegment();
     }
 }

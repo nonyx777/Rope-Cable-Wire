@@ -7,10 +7,6 @@ public class DistanceJoint : MonoBehaviour
 {
     [Header("Distance-Joint Parameters")]
     [SerializeField] private float length;
-    void Start()
-    {
-
-    }
 
     void Update()
     {

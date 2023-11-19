@@ -6,19 +6,13 @@ public class LineRenderSegment : MonoBehaviour
 {
     [SerializeField] private LineRenderer lineRenderer;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
         updateLineRenderer();
     }
 
-    void updateLineRenderer()
+    public void updateLineRenderer()
     {
         lineRenderer.positionCount = HandleSegments.segments.Count;
 

@@ -11,12 +11,12 @@ public class SegmentPhysics : MonoBehaviour
     [SerializeField] private Vector3 acceleration;
     [SerializeField] private Renderer rendererComponent;
     [SerializeField] private Vector3 previous;
-    private static Boolean display_segment;
+    private static bool display_segment;
     public int id;
     private Vector3 current;
     private Vector3 velocity;
-    public static Boolean physics;
-    public Boolean pinned;
+    public static bool physics;
+    public bool pinned;
     //temporary
     private const float masss = 10f;
 

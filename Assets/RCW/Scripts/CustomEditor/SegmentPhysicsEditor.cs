@@ -14,7 +14,5 @@ public class SegmentPhysicsEditor : Editor
             SegmentPhysics.enablePhysics();
         if (GUILayout.Button("Disable Physics"))
             SegmentPhysics.disablePhysics();
-        if (GUILayout.Button("Display Segment"))
-            SegmentPhysics.displaySegment();
     }
 }
