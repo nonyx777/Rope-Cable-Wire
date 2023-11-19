@@ -9,19 +9,21 @@ public class SegmentPhysics : MonoBehaviour
     [SerializeField] private Vector3 gravity;
     [SerializeField] private float damping;
     [SerializeField] private Vector3 acceleration;
+    [SerializeField] private Renderer rendererComponent;
     [SerializeField] private Vector3 previous;
+    private static Boolean display_segment;
     public int id;
     private Vector3 current;
     private Vector3 velocity;
     public static Boolean physics;
     public Boolean pinned;
-
     //temporary
     private const float masss = 10f;
 
     // Start is called before the first frame update
     void Start()
     {
+        // rendererComponent = GetComponent<Renderer>();
         physics = false;
         previous = transform.position + previous;
     }
@@ -29,11 +31,15 @@ public class SegmentPhysics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        rendererComponent.enabled = display_segment;
+
+        
         if (!physics || pinned)
         {
             previous = transform.position;
             return;
         }
+
 
         integrate();
     }
@@ -61,11 +67,16 @@ public class SegmentPhysics : MonoBehaviour
     {
         physics = false;
     }
+    public static void displaySegment()
+    {
+        display_segment = !display_segment;
+    }
 
     public void pinSegment()
     {
         pinned = !pinned;
     }
+
 
     void OnTriggerEnter(Collider other)
     {

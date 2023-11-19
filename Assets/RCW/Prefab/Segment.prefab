@@ -130,6 +130,7 @@ MonoBehaviour:
   gravity: {x: 0, y: -100, z: 0}
   damping: 0.01
   acceleration: {x: 0, y: 0, z: 0}
+  rendererComponent: {fileID: 3294994698063627303}
   previous: {x: -1, y: 0.1, z: 0}
   id: 0
   pinned: 0
