@@ -16,8 +16,6 @@ public class SegmentPhysics : MonoBehaviour
     private Vector3 velocity;
     public static bool physics;
     public bool pinned;
-    //temporary
-    private const float masss = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,15 +29,15 @@ public class SegmentPhysics : MonoBehaviour
     void Update()
     {
         rendererComponent.enabled = display_segment;
+    }
 
-        
+    void FixedUpdate()
+    {
         if (!physics || pinned)
         {
             previous = transform.position;
             return;
         }
-
-
         integrate();
     }
 
@@ -52,7 +50,7 @@ public class SegmentPhysics : MonoBehaviour
 
         previous = transform.position;
 
-        transform.position += velocity + acceleration * Time.deltaTime * Time.deltaTime;
+        transform.position += velocity + acceleration * Time.fixedDeltaTime * Time.fixedDeltaTime;
 
         acceleration = Vector3.zero;
     }
@@ -78,27 +76,31 @@ public class SegmentPhysics : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        collisionResolution(other);
+        penetrationResolution(other);
     }
 
-    //TODO: fix smoothness of the resolution
-    void collisionResolution(Collider other)
+    //TODO: when segment inside object, shoot segment outside
+    void penetrationResolution(Collider other)
     {
-        //storing radius and mass of the objects
+        Vector3 tempo = previous;
+        previous = transform.position;
+        transform.position = tempo;
+
+        //storing radius of the objects
         //this object
-        float this_radius = GetComponent<SphereCollider>().radius;
-        float this_mass = GetComponent<Rigidbody>().mass;
+        float this_radius = transform.localScale.x / 2f;
         //other object
-        float other_radius = other.GetComponent<SphereCollider>().radius;
-        float other_mass = other.GetComponent<Rigidbody>().mass;
+        float other_radius = other.transform.localScale.x / 2f;
 
+        float minimal_distance = this_radius + other_radius;
         Vector3 collision_normal = transform.position - other.transform.position;
-        float penetration_distance = collision_normal.magnitude;
+        float distance = collision_normal.magnitude;
 
-        Vector3 n = collision_normal.normalized;
-        float delta = ((this_radius + other_radius) - penetration_distance);
-
-        transform.position -= 0.5f * delta * n;
-        // previous = transform.position;
+        if (distance < minimal_distance)
+        {
+            Vector3 n = collision_normal / distance;
+            float penetration_distance = minimal_distance - distance;
+            previous += penetration_distance * n;
+        }
     }
 }
