@@ -56,7 +56,7 @@ public class SegmentPhysics : MonoBehaviour
         transform.position += velocity + acceleration * Time.deltaTime * Time.deltaTime;
         previous = current;
 
-        acceleration = new Vector3(0f, 0f, 0f);
+        acceleration = Vector3.zero;
     }
 
     public static void enablePhysics()
