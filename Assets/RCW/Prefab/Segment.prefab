@@ -133,3 +133,4 @@ MonoBehaviour:
   previous: {x: -1, y: 0.1, z: 0}
   id: 0
   pinned: 0
+  sphere: {fileID: 2148397026522618813, guid: 848022c23412a66d1b745c3e90baebfe, type: 3}

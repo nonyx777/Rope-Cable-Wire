@@ -82,25 +82,28 @@ public class SegmentPhysics : MonoBehaviour
     //TODO: when segment inside object, shoot segment outside
     void penetrationResolution(Collider other)
     {
-        Vector3 tempo = previous;
-        previous = transform.position;
-        transform.position = tempo;
-
-        //storing radius of the objects
-        //this object
-        float this_radius = transform.localScale.x / 2f;
-        //other object
-        float other_radius = other.transform.localScale.x / 2f;
-
-        float minimal_distance = this_radius + other_radius;
-        Vector3 collision_normal = transform.position - other.transform.position;
-        float distance = collision_normal.magnitude;
-
-        if (distance < minimal_distance)
+        if (other.GetComponent<SphereCollider>())
         {
-            Vector3 n = collision_normal / distance;
-            float penetration_distance = minimal_distance - distance;
-            previous += penetration_distance * n;
+            Vector3 tempo = previous;
+            previous = transform.position;
+            transform.position = tempo;
+
+            //storing radius of the objects
+            //this object
+            // float this_radius = transform.localScale.x / 2f;
+            //other object
+            // float other_radius = other.transform.localScale.x / 2f;
+
+            // float minimal_distance = this_radius + other_radius;
+            // Vector3 collision_normal = transform.position - other.transform.position;
+            // float distance = collision_normal.magnitude;
+
+            // if (distance < minimal_distance)
+            // {
+            //     Vector3 n = collision_normal / distance;
+            //     Vector3 tempo2 = transform.position - 0.5f * n;
+            //     previous = transform.position = tempo2;
+            // }
         }
     }
 }

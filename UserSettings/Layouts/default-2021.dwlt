@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 238
     height: 407
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -215,8 +215,8 @@ MonoBehaviour:
     y: 0
     width: 818
     height: 407
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -269,8 +269,8 @@ MonoBehaviour:
     y: 0
     width: 263
     height: 629
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -403,7 +403,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 36fbffff2a670000
+      m_ExpandedIDs: 36fbffff2e670000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -419,7 +419,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 8}
+        m_ClientGUIView: {fileID: 0}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -653,9 +653,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.116778, y: 0.24120557, z: 0.5169778}
+    m_Target: {x: -0.94471693, y: 0.7358551, z: 2.4161472}
     speed: 2
-    m_Value: {x: 1.116778, y: 0.24120557, z: 0.5169778}
+    m_Value: {x: -0.94471693, y: 0.7358551, z: 2.4161472}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -702,13 +702,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.05846626, y: -0.0050833086, z: 0.00030167022, w: -0.9982909}
+    m_Target: {x: 0.12414736, y: -0.022324156, z: 0.0027932364, w: 0.9920107}
     speed: 2
-    m_Value: {x: -0.058465417, y: -0.0050832354, z: 0.00030166586, w: -0.9982765}
+    m_Value: {x: 0.12414711, y: -0.022324111, z: 0.0027932308, w: 0.9920087}
   m_Size:
-    m_Target: 15.05119
+    m_Target: 12.194893
     speed: 2
-    m_Value: 15.05119
+    m_Value: 12.194893
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -775,22 +775,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/RCW/Scripts/SegmentScript
+    - Assets/RCW/Prefab
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/RCW/Scripts/SegmentScript
+  - Assets/RCW/Prefab
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /home/nonyx/Desktop/Projects/UnityProjects/Rope-Cable-Wire
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 11}
-    m_SelectedIDs: 62690000
-    m_LastClickedID: 26978
-    m_ExpandedIDs: 00000000dc6700005a6900006469000000ca9a3b
+    m_SelectedIDs: 6c690000
+    m_LastClickedID: 26988
+    m_ExpandedIDs: 00000000e2670000e46700006469000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -818,7 +818,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000dc670000
+    m_ExpandedIDs: 00000000e2670000e4670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
