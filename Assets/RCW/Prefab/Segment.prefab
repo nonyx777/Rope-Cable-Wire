@@ -127,9 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ffb3c1818ede7ee68112970f05d9764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: {x: 0, y: -100, z: 0}
+  gravity: 100
   damping: 0.01
-  acceleration: {x: 0, y: 0, z: 0}
   rendererComponent: {fileID: 3294994698063627303}
   previous: {x: -1, y: 0.1, z: 0}
   id: 0
