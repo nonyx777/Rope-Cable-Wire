@@ -9,6 +9,7 @@ public class SegmentPhysics : MonoBehaviour
     [SerializeField] private float gravity;
     [SerializeField] private float damping;
     [SerializeField] private Renderer rendererComponent;
+    public Rigidbody rb;
     [SerializeField] private Vector3 previous;
     private Vector3 acceleration;
     private static bool display_segment;
@@ -17,25 +18,31 @@ public class SegmentPhysics : MonoBehaviour
     public static bool physics;
     public bool pinned;
 
+    private Vector3 contact_position;
+    private Vector3 segment_position;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        // rendererComponent = GetComponent<Renderer>();
-        physics = false;
-        previous = transform.position + previous;
+        previous = rb.position + previous;
+        display_segment = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         rendererComponent.enabled = display_segment;
+        rb.useGravity = physics && !pinned;
     }
 
     void FixedUpdate()
     {
         if (!physics || pinned)
         {
-            previous = transform.position;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            previous = rb.position;
             return;
         }
         integrate();
@@ -43,16 +50,17 @@ public class SegmentPhysics : MonoBehaviour
 
     void integrate()
     {
-        acceleration += gravity * Vector3.down;
+        velocity = rb.position - previous;
 
-        velocity = transform.position - previous;
-        velocity *= 1f - damping * Time.deltaTime;
+        Vector3 currentPosition = rb.position;
 
-        previous = transform.position;
+        rb.MovePosition(rb.position + velocity);
 
-        transform.position += velocity + acceleration * Time.fixedDeltaTime * Time.fixedDeltaTime;
+        previous = currentPosition;
 
-        acceleration = Vector3.zero;
+        //reset
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
 
     public static void enablePhysics()
@@ -73,37 +81,16 @@ public class SegmentPhysics : MonoBehaviour
         pinned = !pinned;
     }
 
-
-    void OnTriggerEnter(Collider other)
+    void OnDrawGizmos()
     {
-        penetrationResolution(other);
-    }
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(contact_position, 0.5f);
 
-    //TODO: when segment inside object, shoot segment outside
-    void penetrationResolution(Collider other)
-    {
-        if (other.GetComponent<SphereCollider>())
-        {
-            Vector3 tempo = previous;
-            previous = transform.position;
-            transform.position = tempo;
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(segment_position, 0.5f);
 
-            //storing radius of the objects
-            //this object
-            // float this_radius = transform.localScale.x / 2f;
-            //other object
-            // float other_radius = other.transform.localScale.x / 2f;
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(previous, 0.5f);
 
-            // float minimal_distance = this_radius + other_radius;
-            // Vector3 collision_normal = transform.position - other.transform.position;
-            // float distance = collision_normal.magnitude;
-
-            // if (distance < minimal_distance)
-            // {
-            //     Vector3 n = collision_normal / distance;
-            //     Vector3 tempo2 = transform.position - 0.5f * n;
-            //     previous = transform.position = tempo2;
-            // }
-        }
     }
 }

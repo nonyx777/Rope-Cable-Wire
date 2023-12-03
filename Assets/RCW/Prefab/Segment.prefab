@@ -110,8 +110,8 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   gravity: 100
   damping: 0.01
   rendererComponent: {fileID: 3294994698063627303}
+  rb: {fileID: 1868391816822646236}
   previous: {x: -1, y: 0.1, z: 0}
   id: 0
   pinned: 0
-  sphere: {fileID: 2148397026522618813, guid: 848022c23412a66d1b745c3e90baebfe, type: 3}

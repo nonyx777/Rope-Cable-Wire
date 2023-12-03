@@ -31,13 +31,20 @@ public class DistanceJoint : MonoBehaviour
             if (i + 1 >= HandleSegments.segments.Count)
                 return;
             int j = i + 1;
-            Vector3 offsetVec = distanceResolver(HandleSegments.segments[i].transform.position,
-                                HandleSegments.segments[j].transform.position);
+            Vector3 position1 = HandleSegments.segments[i].GetComponent<SegmentPhysics>().rb.position;
+            Vector3 position2 = HandleSegments.segments[j].GetComponent<SegmentPhysics>().rb.position;
+
+
+            Vector3 offsetVec = distanceResolver(position1, position2);
 
             if (HandleSegments.segments[i].GetComponent<SegmentPhysics>().pinned == false)
-                HandleSegments.segments[i].transform.position += offsetVec;
-            if(HandleSegments.segments[j].GetComponent<SegmentPhysics>().pinned == false)
-                HandleSegments.segments[j].transform.position += -offsetVec;
+            {
+                HandleSegments.segments[i].GetComponent<SegmentPhysics>().rb.MovePosition(position1 + offsetVec);
+            }
+            if (HandleSegments.segments[j].GetComponent<SegmentPhysics>().pinned == false)
+            {
+                HandleSegments.segments[j].GetComponent<SegmentPhysics>().rb.MovePosition(position2 - offsetVec);
+            }
         }
     }
 }
