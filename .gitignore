@@ -1,14 +1,14 @@
+#visual studio
+*.csproj
+*.sln
+*.unityproj
 .vscode/
-Assembly-CSharp-Editor.csproj
-Assembly-CSharp.csproj
-Library/
-Logs/
-Packages/
-Rope-Cable-Wire.sln
+
+#unity generated
+[Tt]emp/
+[Oo]bj/
+/[Bb]uilds/
+/[Ll]ibrary/
+
 Assets/TutorialInfo/
 Assets/TutorialInfo.meta
-Temp/
-obj/
-Library/
-UserSettings/
-
