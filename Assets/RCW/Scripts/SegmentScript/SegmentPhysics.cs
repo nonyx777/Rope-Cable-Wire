@@ -6,20 +6,15 @@ using UnityEngine;
 public class SegmentPhysics : MonoBehaviour
 {
     [Header("Segment Parameters")]
-    [SerializeField] private float gravity;
-    [SerializeField] private float damping;
     [SerializeField] private Renderer rendererComponent;
     public Rigidbody rb;
-    [SerializeField] private Vector3 previous;
-    private Vector3 acceleration;
+    private Vector3 previous;
+    private Vector2 current;
     private static bool display_segment;
     public int id;
     private Vector3 velocity;
     public static bool physics;
     public bool pinned;
-
-    private Vector3 contact_position;
-    private Vector3 segment_position;
 
 
     // Start is called before the first frame update
@@ -52,11 +47,11 @@ public class SegmentPhysics : MonoBehaviour
     {
         velocity = rb.position - previous;
 
-        Vector3 currentPosition = rb.position;
+        current = rb.position;
 
         rb.MovePosition(rb.position + velocity);
 
-        previous = currentPosition;
+        previous = current;
 
         //reset
         rb.velocity = Vector3.zero;
@@ -79,18 +74,5 @@ public class SegmentPhysics : MonoBehaviour
     public void pinSegment()
     {
         pinned = !pinned;
-    }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(contact_position, 0.5f);
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(segment_position, 0.5f);
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(previous, 0.5f);
-
     }
 }

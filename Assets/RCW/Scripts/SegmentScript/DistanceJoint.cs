@@ -28,7 +28,7 @@ public class DistanceJoint : MonoBehaviour
     {
         for (int i = 0; i < HandleSegments.segments.Count; i++)
         {
-            if (i + 1 >= HandleSegments.segments.Count)
+            if (i + 1 > HandleSegments.segments.Count)
                 return;
             int j = i + 1;
             Vector3 position1 = HandleSegments.segments[i].GetComponent<SegmentPhysics>().rb.position;
