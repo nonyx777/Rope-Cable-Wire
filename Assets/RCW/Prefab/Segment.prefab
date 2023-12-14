@@ -114,7 +114,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &2409742269856411643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,10 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ffb3c1818ede7ee68112970f05d9764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 100
-  damping: 0.01
   rendererComponent: {fileID: 3294994698063627303}
   rb: {fileID: 1868391816822646236}
-  previous: {x: -1, y: 0.1, z: 0}
   id: 0
   pinned: 0
