@@ -130,4 +130,5 @@ MonoBehaviour:
   rendererComponent: {fileID: 3294994698063627303}
   rb: {fileID: 1868391816822646236}
   id: 0
+  acceleration: {x: 0, y: -5, z: 0}
   pinned: 0
